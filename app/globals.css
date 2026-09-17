@@ -1,26 +1,129 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Colors */
+  --color-accent: #007bff;
+  --color-accent-hover: #0067d6;
+  --color-accent-deep: #057eff;
+  --color-accent-chip-text: #0372e9;
+  --color-accent-tint: #1e88f9; /* used at /20 opacity for tinted rectangles/chips */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-ink: #0a0a0a;
+  --color-page: #f1f1f1;
+  --color-ink-strong: #2a2a2a;
+  --color-ink-card: #383838;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-muted: #aaaaaa;
+  --color-muted-serif: #cbcbcb;
+  --color-muted-footer: #91a4a4;
+  --color-muted-venue: #a9aaaa;
+  --color-on-accent-body: #b6d9ff;
+  --color-input-text: #dadada;
+
+  --color-hairline: #bdbdbd;
+  --color-hairline-dot: #7d7d7d;
+  --color-hairline-footer: #0b201f;
+
+  --color-card-dark: #1a1919; /* used at /20 opacity for dark audience cards */
+  --color-card-light: #ffffff;
+
+  --color-marker-purple: #7300ff;
+  --color-marker-dot-fill: #ece9e9;
+
+  --color-input-border: #444444;
+  --color-input-border-newsletter-dark: #37576e;
+  --color-input-border-newsletter-blue: #223939;
+
+  /* Fonts */
+  --font-space-grotesk: var(--font-space-grotesk-loader);
+  --font-playfair: var(--font-playfair-loader);
+  --font-inter: var(--font-inter-loader);
+  --font-hanken: var(--font-hanken-loader);
+  --font-familjen: var(--font-familjen-loader);
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Radii */
+  --radius-panel: 20px;
+  --radius-control: 10px;
+  --radius-subscribe: 8px;
+  --radius-pill: 999px;
+  --radius-checkbox: 2px;
+
+  /* Type-scale roles: size / line-height / letter-spacing (weight set via standard font-* utilities) */
+  --text-hero: 52px;
+  --text-hero--line-height: 100%;
+  --text-hero--letter-spacing: -0.04em;
+
+  --text-section: 38px;
+  --text-section--line-height: 100%;
+  --text-section--letter-spacing: -0.04em;
+
+  --text-stay-connected: 42px;
+  --text-stay-connected--line-height: 100%;
+  --text-stay-connected--letter-spacing: -0.01em;
+
+  --text-partners-heading: 44px;
+  --text-partners-heading--line-height: 55px;
+  --text-partners-heading--letter-spacing: -1.32px;
+
+  --text-experience-title: 28px;
+  --text-experience-title--line-height: 100%;
+  --text-experience-title--letter-spacing: -0.02em;
+
+  --text-audience-title: 22px;
+  --text-audience-title--line-height: 26px;
+  --text-audience-title--letter-spacing: -0.9px;
+
+  --text-md-tight: 20px; /* date line, italic eyebrow/sub-lines, large buttons */
+  --text-md-tight--line-height: 100%;
+  --text-md-tight--letter-spacing: -0.02em;
+
+  --text-partner-item-title: 20px;
+  --text-partner-item-title--line-height: 30px;
+  --text-partner-item-title--letter-spacing: -0.6px;
+
+  --text-date-paragraph: 24px;
+  --text-date-paragraph--line-height: 100%;
+  --text-date-paragraph--letter-spacing: -0.02em;
+
+  --text-btn-form: 17px; /* About/Register button label */
+  --text-btn-form--line-height: 25.5px;
+  --text-btn-form--letter-spacing: -0.51px;
+
+  --text-nav: 15px;
+  --text-nav--line-height: 22.5px;
+
+  --text-partner-body: 15px;
+  --text-partner-body--line-height: 24.375px;
+
+  --text-base: 16px; /* body copy, footer headings/links, stay-connected body */
+  --text-base--line-height: 100%;
+
+  --text-chip: 14px;
+  --text-chip--line-height: 21px;
+
+  --text-form-label: 14px;
+  --text-form-label--line-height: 19.5px;
+  --text-form-label--letter-spacing: 0.325px;
+
+  --text-form-field: 14px;
+  --text-form-field--line-height: 100%;
+
+  --text-consent: 14px;
+  --text-consent--line-height: 22.75px;
+
+  --text-register-note: 19px;
+  --text-register-note--line-height: 28.5px;
+  --text-register-note--letter-spacing: -0.38px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-page);
+  color: var(--color-ink-strong);
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

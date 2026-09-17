@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BCCG 2026 marketing site
 
-## Getting Started
+Next.js (App Router + TypeScript + Tailwind v4) rebuild of the Blockchain & Crypto Conference
+Ghana (BCCG) 2026 marketing site: Home (`/`), About (`/about`), Register (`/register`).
 
-First, run the development server:
+This build targets **pixel fidelity at the 1512px desktop canvas only**. Responsive/mobile
+layout is a deliberate, separate follow-up — the components use normal document flow rather than
+the original design's absolute-positioned canvas, so that follow-up won't require a rewrite.
+
+## Setup
+
+Requires Node 18+.
 
 ```bash
+npm install
+cp .env.local.example .env.local   # then fill in your Formspree form ID
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Scripts: `npm run dev`, `npm run build`, `npm run start`, `npm run lint`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/` — the three routes (`page.tsx`, `about/page.tsx`, `register/page.tsx`) plus
+  `layout.tsx` (fonts, global metadata) and `globals.css` (design tokens as a Tailwind v4
+  `@theme` block).
+- `components/layout/` — chrome shared across all 3 pages: `SiteNav`, `SiteFooter`,
+  `StayConnectedBand`, `NewsletterSignup`.
+- `components/ui/` — small reusable primitives: `Button`, `HighlightedWord` (the tinted-rectangle-and-corner-dots headline treatment), `BlurredBlob`, `GuideLines`, `Pill`.
+- `components/sections/{home,about,register}/` — page-specific sections.
+- `lib/content.ts` — copy that's shared across multiple components (nav items, the five
+  experience tracks, audience/partner card data, footer links) — edit copy here rather than in
+  the components.
+- `public/svg/` — decorative art and icons, authored directly from the design's exported SVG
+  markup.
+- `public/images/` — real photos go here (see checklist below); referenced by filename from the
+  components even before the files exist.
 
-## Learn More
+## Still needed from you
 
-To learn more about Next.js, take a look at the following resources:
+- [ ] A Formspree form ID in `.env.local`'s `NEXT_PUBLIC_FORMSPREE_FORM_ID` (create one at
+      [formspree.io](https://formspree.io)). Without it, the register form shows an error instead
+      of submitting.
+- [ ] Drop these photos into `public/images/` (any of them missing just renders as a blank image
+      box until supplied):
+  - `hero-stage.jpg` — Home hero background
+  - `photo-row-1.jpg` … `photo-row-4.jpg` — the 4-photo strip
+  - `audience-bg.jpg` — Home "audience" section background
+  - `stay-connected-bg.jpg` — Home Stay Connected band background
+  - `experiences-backdrop.png` — optional low-opacity watercolour backdrop for the "five
+    experiences" section (currently unused; add and wire up if you have it)
+- [ ] Confirm the Register form's "I am primarily interested in" options — currently the five
+      conference experience-track names, sourced from `lib/content.ts`'s `experienceTracks`
+      (the original Figma file left this list undefined).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If deploying to Vercel (or similar), set `NEXT_PUBLIC_FORMSPREE_FORM_ID` in the project's
+environment variables — `.env.local` is git-ignored and won't be picked up automatically.
