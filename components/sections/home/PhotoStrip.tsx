@@ -11,7 +11,7 @@ const photos = [
  * per the design brief. */
 export default function PhotoStrip() {
   return (
-    <div className="my-16 flex justify-center gap-[29px]">
+    <div className="my-16 flex justify-center gap-[29px] overflow-x-hidden">
       {photos.map((photo) => (
         <div
           key={photo.src}
