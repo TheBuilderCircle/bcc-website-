@@ -13,8 +13,8 @@ export default function SiteNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex h-[78px] items-center justify-between p-2.5">
-      <div className="flex w-[1179px] items-center justify-between">
+    <nav className="flex h-[78px] items-center justify-between gap-2.5 p-2.5">
+      <div className="flex w-[1179px] items-center gap-150">
         <Link href="/" className="flex items-center">
           <img src="/svg/decorative/logo.svg" alt="BCCG" className="h-[38.919px] w-[84px]" />
         </Link>
