@@ -39,13 +39,13 @@ export default function ExperiencesTimeline() {
         heightPx={471.225}
         className="absolute right-[148.14px] top-[1842px] hidden w-[384.86px] lg:block"
       />
-      {/* Placed at its design frame: 325x157, 176px from the right, 892px down
+      {/* Placed at its design frame: 350x208, 176px from the right, 892px down
           on the 1512px canvas. */}
       <img
         src="/svg/decorative/arrow-pair.svg"
         alt=""
         aria-hidden
-        className="pointer-events-none absolute right-[176px] top-[892px] hidden w-[325px] lg:block"
+        className="pointer-events-none absolute right-[176px] top-[892px] hidden w-[350px] lg:block"
       />
       {/* The coral shape nested in clusterB's Figma group, but positioned against
           the canvas rather than the cluster frame: 200.37x199.285 at 890,1997. */}
@@ -74,10 +74,11 @@ export default function ExperiencesTimeline() {
 
       {/* The design's three #007BFF rules down the column (Line 5-7): each is a
           3px bar with a 16px dot on both ends, so they are drawn from the
-          reference's own paths rather than as plain 3px divs. */}
-      <img src="/svg/decorative/experiences/blue-rule-5.svg" alt="" aria-hidden className="pointer-events-none absolute left-[654px] top-[479px] hidden w-[16px] lg:block" />
-      <img src="/svg/decorative/experiences/blue-rule-6.svg" alt="" aria-hidden className="pointer-events-none absolute left-[971px] top-[1506px] hidden w-[16px] lg:block" />
-      <img src="/svg/decorative/experiences/blue-rule-7.svg" alt="" aria-hidden className="pointer-events-none absolute left-[862px] top-[2684px] hidden w-[16px] lg:block" />
+          reference's own paths rather than as plain 3px divs. They sit in front
+          of the path (z-5) so they read as crossing the dashes, as in Figma. */}
+      <img src="/svg/decorative/experiences/blue-rule-5.svg" alt="" aria-hidden className="pointer-events-none absolute left-[654px] top-[479px] z-[5] hidden w-[16px] lg:block" />
+      <img src="/svg/decorative/experiences/blue-rule-6.svg" alt="" aria-hidden className="pointer-events-none absolute left-[971px] top-[1506px] z-[5] hidden w-[16px] lg:block" />
+      <img src="/svg/decorative/experiences/blue-rule-7.svg" alt="" aria-hidden className="pointer-events-none absolute left-[862px] top-[2684px] z-[5] hidden w-[16px] lg:block" />
       <div aria-hidden className="pointer-events-none absolute left-[298px] top-[226px] z-[5] hidden h-[134px] w-[321px] bg-gradient-to-b from-page to-transparent lg:block" />
       <div aria-hidden className="pointer-events-none absolute left-[898px] top-[2889px] z-[5] hidden h-[200px] w-[393px] bg-gradient-to-t from-page to-transparent lg:block" />
 
@@ -103,9 +104,8 @@ export default function ExperiencesTimeline() {
           className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-auto -translate-x-1/2 lg:left-[270.35px] lg:block lg:h-[2816.5px] lg:w-[762.15px] lg:translate-x-0 lg:drop-shadow-[0_4px_20px_rgba(0,123,255,0.8)]"
         />
         {/* The design stacks a second path over the grey dashes (Vector 4): the
-            same geometry stroked with a gradient that is solid #007BFF for the
-            first ~34% of its length, transparent through the middle, then 30%
-            blue from ~86% on — the blue stretch of the line. */}
+            same geometry stroked with a gradient that is blue at the top,
+            transparent through the middle, then full blue again down low. */}
         <img
           src="/svg/decorative/timeline-path-blue.svg"
           alt=""

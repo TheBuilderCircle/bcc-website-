@@ -3,8 +3,9 @@
     <linearGradient id="pathBlue" gradientUnits="userSpaceOnUse" x1="73.65" y1="0.5" x2="679.15" y2="2816.5">
       <stop stop-color="#007BFF"/>
       <stop offset="0.340699" stop-color="#007BFF" stop-opacity="0"/>
-      <stop offset="0.712306" stop-color="#007BFF" stop-opacity="0"/>
-      <stop offset="0.865385" stop-color="#007BFF" stop-opacity="0.3"/>
+      <stop offset="0.66" stop-color="#007BFF" stop-opacity="0"/>
+      <stop offset="0.72" stop-color="#007BFF"/>
+      <stop offset="1" stop-color="#007BFF"/>
     </linearGradient>
   </defs>
 
