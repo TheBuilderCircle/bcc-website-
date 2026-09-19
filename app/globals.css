@@ -185,3 +185,11 @@
     stroke-dashoffset: -16;
   }
 }
+
+/* Home photo strip: slide left by one photo set (the track holds 4 identical
+   sets, so one set is 25% of it) for a seamless loop. */
+@keyframes photo-marquee {
+  to {
+    transform: translateX(-25%);
+  }
+}
