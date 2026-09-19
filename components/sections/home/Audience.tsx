@@ -5,7 +5,7 @@ import AudienceCard from "./AudienceCard";
 
 export default function Audience() {
   return (
-    <section className="relative mx-2 my-2 overflow-hidden rounded-panel bg-ink px-8 py-16">
+    <section className="relative isolate mx-2 my-2 overflow-hidden rounded-panel bg-ink px-8 py-16">
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <Image
           src="/images/audience-bg.jpg"

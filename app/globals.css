@@ -146,3 +146,15 @@
     transform: translate(0, 0) scale(1);
   }
 }
+
+/* Date card dial: the blue ring reveals along its arc (a mask's stroke draws
+   on), holds, then resets and loads again. */
+@keyframes date-ring-load {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  70%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

@@ -17,7 +17,7 @@ export default function Statement() {
         </p>
       </div>
       <PhotoStrip />
-      <div className="px-6">
+      <div className="relative px-6">
         <DateCard />
       </div>
     </section>

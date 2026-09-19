@@ -19,10 +19,38 @@ const blockPlacement = [
   "lg:top-[2772.5px] lg:left-[117.5px]",
 ];
 
+/** Soft watercolour washes behind the timeline (pink / lavender / blue), as
+ * [left, top, width, height, colour] on the 1512x3563 canvas. Estimated from a
+ * screenshot of the design frame, so tune the numbers if it drifts. */
+const washes: Array<[number, number, number, number, string]> = [
+  [780, 60, 800, 650, "rgba(236,190,225,0.55)"],
+  [1000, 600, 560, 460, "rgba(232,180,215,0.5)"],
+  [-150, 1050, 700, 560, "rgba(200,215,240,0.6)"],
+  [950, 1350, 650, 520, "rgba(196,200,240,0.55)"],
+  [-200, 1850, 700, 600, "rgba(186,205,240,0.6)"],
+  [800, 2250, 800, 700, "rgba(236,190,225,0.5)"],
+  [-150, 2650, 650, 600, "rgba(214,200,240,0.5)"],
+];
+
 export default function ExperiencesTimeline() {
   return (
     <section id="experiences" className="relative overflow-hidden bg-page pt-[76px] pb-24">
       <GuideLines horizontalPositions={[3469.5, 3561.5]} />
+
+      {washes.map(([left, top, width, height, color]) => (
+        <div
+          key={`${left}-${top}`}
+          aria-hidden
+          className="pointer-events-none absolute hidden blur-[60px] lg:block"
+          style={{
+            left,
+            top,
+            width,
+            height,
+            background: `radial-gradient(closest-side, ${color}, transparent)`,
+          }}
+        />
+      ))}
 
       {/* Placed at its design frame: 456x500 at 146,409 on the 1512px canvas. */}
       <FragmentIllustration
@@ -72,26 +100,8 @@ export default function ExperiencesTimeline() {
         className="pointer-events-none absolute left-[138.05px] top-[2417.85px] hidden w-[112.231px] lg:block"
       />
 
-      {/* The design's three #007BFF rules down the column (Line 5-7): each is a
-          3px bar with a 16px dot on both ends, so they are drawn from the
-          reference's own paths rather than as plain 3px divs. They sit in front
-          of the path (z-5) so they read as crossing the dashes, as in Figma. */}
-      <img src="/svg/decorative/experiences/blue-rule-5.svg" alt="" aria-hidden className="pointer-events-none absolute left-[654px] top-[479px] z-[5] hidden w-[16px] lg:block" />
-      <img src="/svg/decorative/experiences/blue-rule-6.svg" alt="" aria-hidden className="pointer-events-none absolute left-[971px] top-[1506px] z-[5] hidden w-[16px] lg:block" />
-      <img src="/svg/decorative/experiences/blue-rule-7.svg" alt="" aria-hidden className="pointer-events-none absolute left-[862px] top-[2684px] z-[5] hidden w-[16px] lg:block" />
       <div aria-hidden className="pointer-events-none absolute left-[298px] top-[226px] z-[5] hidden h-[134px] w-[321px] bg-gradient-to-b from-page to-transparent lg:block" />
       <div aria-hidden className="pointer-events-none absolute left-[898px] top-[2889px] z-[5] hidden h-[200px] w-[393px] bg-gradient-to-t from-page to-transparent lg:block" />
-
-      {/* The design's "Frame 26": a rotating blue badge with a white glyph that
-          sits on the curve at 979,1247 (rendered box 129.25 square, because the
-          106.37 square is rotated 165.761deg). Extracted from the reference with
-          its inner-shadow filter. Above the path, like the design's layer order. */}
-      <img
-        src="/svg/decorative/experiences/curve-arrow.svg"
-        alt=""
-        aria-hidden
-        className="pointer-events-none absolute left-[979px] top-[1247px] z-[5] hidden w-[129.25px] lg:block"
-      />
 
       {/* Heading frame: 1279 wide, 149 tall, from y 76, h2 38/46, body 16/19. */}
       <div className="relative mx-auto flex max-w-[1279px] flex-col items-center gap-[19px] px-6 text-center">
@@ -123,6 +133,23 @@ export default function ExperiencesTimeline() {
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-auto -translate-x-1/2 lg:left-[270.35px] lg:block lg:h-[2816.5px] lg:w-[762.15px] lg:translate-x-0"
         />
+      {/* The design's three #007BFF rules down the column (Line 5-7): each is a
+          3px bar with a 16px dot on both ends, so they are drawn from the
+          reference's own paths rather than as plain 3px divs. They live in the column so they stay on the path at any viewport width. They sit in front
+          of the path (z-5) so they read as crossing the dashes, as in Figma. */}
+      <img src="/svg/decorative/experiences/blue-rule-5.svg" alt="" aria-hidden className="pointer-events-none absolute left-[537.5px] top-[248.5px] z-[5] hidden w-[16px] lg:block" />
+      <img src="/svg/decorative/experiences/blue-rule-6.svg" alt="" aria-hidden className="pointer-events-none absolute left-[854.5px] top-[1275.5px] z-[5] hidden w-[16px] lg:block" />
+      <img src="/svg/decorative/experiences/blue-rule-7.svg" alt="" aria-hidden className="pointer-events-none absolute left-[745.5px] top-[2453.5px] z-[5] hidden w-[16px] lg:block" />
+      {/* The design's "Frame 26": a rotating blue badge with a white glyph that
+          sits on the curve at 979,1247 on the canvas (862.5,1016.5 in the column) (rendered box 129.25 square, because the
+          106.37 square is rotated 165.761deg). Extracted from the reference with
+          its inner-shadow filter. Above the path, like the design's layer order. Anchored to the column, like the path, so they stay aligned at any viewport width. */}
+      <img
+        src="/svg/decorative/experiences/curve-arrow.svg"
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute left-[862.5px] top-[1016.5px] z-[5] hidden w-[129.25px] lg:block"
+      />
         {experienceTracks.map((track, i) => (
           <ExperienceBlock
             key={track.id}
