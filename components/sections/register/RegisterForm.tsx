@@ -95,7 +95,7 @@ export default function RegisterForm() {
             type="checkbox"
             name="consent"
             required
-            className="mt-0.5 h-5 w-5 shrink-0 rounded-checkbox border-0 bg-white accent-accent"
+            className="mt-0.5 h-5 w-5 shrink-0 rounded-checkbox border border-[#767676] bg-white accent-accent"
           />
           <span className="max-w-[608px] font-body text-consent text-muted">
             I agree to receive information and updates relating to Blockchain &amp; Crypto
