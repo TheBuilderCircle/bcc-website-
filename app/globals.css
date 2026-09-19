@@ -117,13 +117,79 @@
   --text-register-note--letter-spacing: -0.38px;
 }
 
-body {
-  background: var(--color-page);
-  color: var(--color-ink-strong);
-  font-family: var(--font-body);
+/* The hero type is a fixed 52px on one line ("Blockchain Innovation." is ~490px
+   wide), which is wider than a phone. Scale it with the viewport below `sm`. */
+@media (max-width: 639px) {
+  :root {
+    --text-hero: clamp(28px, 8.6vw, 52px);
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+@layer base {
+  /* The layout is drawn on a 1512px-wide design and sized in fixed px, so on
+     narrower desktops it reads oversized. From `lg` up, scale the whole page by
+     viewport / 1512 (never above 1): a 1280px window gets the same layout as the
+     1512 design, just smaller. tan(atan2()) divides two lengths into a plain
+     number, which `zoom` needs. Below `lg` the responsive layout is untouched. */
+  @media (min-width: 1024px) {
+    html {
+      zoom: min(1, tan(atan2(100vw, 1512px)));
+    }
+  }
+
+  body {
+    background: var(--color-page);
+    color: var(--color-ink-strong);
+    font-family: var(--font-body);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* Experiences-section decorative illustrations: each fragment pops in from
+   a slightly offset/scaled-down state, then holds until the loop restarts. */
+@keyframes illustration-pop-in {
+  0% {
+    opacity: 0;
+    transform: translate(10px, 20px) scale(0.9);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+/* Date card dial: the blue ring reveals along its arc (a mask's stroke draws
+   on), holds, then resets and loads again. */
+@keyframes date-ring-load {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  70%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Mobile Experiences timeline: the blue dashes flow along the curve. The offset
+   equals one dash + gap (7 + 9) so the loop is seamless. */
+@keyframes path-flow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+/* Home photo strip: slide left by one photo set (the track holds 4 identical
+   sets, so one set is 25% of it) for a seamless loop. */
+@keyframes photo-marquee {
+  to {
+    transform: translateX(-25%);
+  }
 }

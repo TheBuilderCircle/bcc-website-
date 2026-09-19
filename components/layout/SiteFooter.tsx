@@ -22,7 +22,7 @@ export default function SiteFooter() {
   const pathname = usePathname();
 
   return (
-    <footer className="bg-ink px-[170px] pt-[50.5px] pb-10">
+    <footer className="bg-ink px-6 pt-[50.5px] pb-10 md:px-25 xl:px-42.5">
       <div className="mx-auto flex max-w-[1173px] flex-wrap items-start gap-x-[90px] gap-y-10">
         <div className="flex w-[237px] flex-col items-start gap-[26px]">
           <img src="/svg/decorative/logo.svg" alt="BCCG" className="h-[38.919px] w-[84px]" />

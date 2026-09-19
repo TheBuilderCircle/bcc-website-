@@ -1,8 +1,9 @@
 import HighlightedWord from "@/components/ui/HighlightedWord";
 import BlurredBlob from "@/components/ui/BlurredBlob";
 import RegisterForm from "./RegisterForm";
+import type { RegistrationType } from "@/lib/registration-forms";
 
-export default function RegisterHero() {
+export default function RegisterHero({ initialType }: { initialType?: RegistrationType }) {
   return (
     <div className="relative mx-2 overflow-hidden rounded-panel bg-ink">
       <BlurredBlob
@@ -34,7 +35,7 @@ export default function RegisterHero() {
       </div>
 
       <div className="relative pb-20">
-        <RegisterForm />
+        <RegisterForm initialType={initialType} />
       </div>
     </div>
   );

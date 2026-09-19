@@ -30,6 +30,10 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# this project uses package-lock.json; ignore the pnpm lockfile that
+# gets generated when pnpm is used to install/run locally
+pnpm-lock.yaml
+
 # env files (can opt-in for committing if needed)
 .env*
 
