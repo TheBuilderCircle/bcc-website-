@@ -109,8 +109,8 @@ export default function RegisterForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="mx-auto flex max-w-[768px] flex-col px-6">
-      <div className="flex flex-col gap-0 rounded-panel p-10 text-left">
+    <form onSubmit={handleSubmit} className="mx-auto flex max-w-[768px] flex-col px-4 sm:px-6">
+      <div className="flex flex-col gap-0 rounded-panel p-2 text-left sm:p-10">
         <div
           role="tablist"
           aria-label="Registration type"

@@ -117,7 +117,26 @@
   --text-register-note--letter-spacing: -0.38px;
 }
 
+/* The hero type is a fixed 52px on one line ("Blockchain Innovation." is ~490px
+   wide), which is wider than a phone. Scale it with the viewport below `sm`. */
+@media (max-width: 639px) {
+  :root {
+    --text-hero: clamp(28px, 8.6vw, 52px);
+  }
+}
+
 @layer base {
+  /* The layout is drawn on a 1512px-wide design and sized in fixed px, so on
+     narrower desktops it reads oversized. From `lg` up, scale the whole page by
+     viewport / 1512 (never above 1): a 1280px window gets the same layout as the
+     1512 design, just smaller. tan(atan2()) divides two lengths into a plain
+     number, which `zoom` needs. Below `lg` the responsive layout is untouched. */
+  @media (min-width: 1024px) {
+    html {
+      zoom: min(1, tan(atan2(100vw, 1512px)));
+    }
+  }
+
   body {
     background: var(--color-page);
     color: var(--color-ink-strong);
@@ -156,5 +175,13 @@
   70%,
   100% {
     stroke-dashoffset: 0;
+  }
+}
+
+/* Mobile Experiences timeline: the blue dashes flow along the curve. The offset
+   equals one dash + gap (7 + 9) so the loop is seamless. */
+@keyframes path-flow {
+  to {
+    stroke-dashoffset: -16;
   }
 }

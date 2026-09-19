@@ -1,7 +1,7 @@
 import { boltPath, DIAL_CENTER, dialTicks, glowPaths } from "@/lib/date-card-art";
 
 /** The Home "13-14 November 2026" card ("Frame 11", 1496x433 in the design),
- * built as markup instead of an exported image. From `md` up it is the design
+ * built as markup instead of an exported image. From `lg` up it is the design
  * canvas scaled to the container (positions are % of 1496x433, type is in cqw so
  * it scales with the card); below that it stacks. The ring around the bolt loads
  * in blue along its arc, holds, then restarts. */
@@ -9,7 +9,7 @@ export default function DateCard() {
   return (
     <section
       aria-label="BCCG 2026 date and venue"
-      className="relative mx-auto w-full max-w-[1496px] overflow-hidden rounded-panel bg-ink [container-type:inline-size] md:aspect-[1496/433]"
+      className="relative mx-auto w-full max-w-[1496px] overflow-hidden rounded-panel bg-ink [container-type:inline-size] lg:aspect-[1496/433]"
     >
       {/* Inner panel (21,23 1454x388) holding the two blurred blue glows. */}
       <div
@@ -42,13 +42,13 @@ export default function DateCard() {
         </svg>
       </div>
 
-      <div className="relative flex flex-col gap-8 px-8 py-10 md:absolute md:inset-0 md:block md:p-0">
+      <div className="relative flex flex-col gap-8 px-8 py-10 lg:absolute lg:inset-0 lg:block lg:p-0">
         {/* Dial: frame 28,-1 319x319 on the canvas. */}
         <svg
           aria-hidden
           viewBox="28 -1 319 319"
           overflow="visible"
-          className="mx-auto h-[240px] w-[240px] shrink-0 md:absolute md:top-[-0.23%] md:left-[1.87%] md:h-auto md:w-[21.32%]"
+          className="mx-auto h-[240px] w-[240px] shrink-0 lg:absolute lg:top-[-0.23%] lg:left-[1.87%] lg:h-auto lg:w-[21.32%]"
         >
           <defs>
             <filter id="dc-filter2_di" x="61.1532" y="31.1137" width="263.14" height="263.14" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
@@ -136,20 +136,20 @@ export default function DateCard() {
           <path d={boltPath} fill="url(#dc-bolt)" />
         </svg>
 
-        <div className="flex flex-col gap-3 md:absolute md:top-[69.98%] md:left-[3.54%] md:w-[20%] md:gap-0">
-          <p className="font-space-grotesk text-[20px] leading-[1.2] font-bold tracking-[-0.02em] text-white md:text-[1.337cqw]">
+        <div className="flex flex-col gap-3 lg:absolute lg:top-[69.98%] lg:left-[3.54%] lg:w-[20%] lg:gap-0">
+          <p className="font-space-grotesk text-[20px] leading-[1.2] font-bold tracking-[-0.02em] text-white lg:text-[1.337cqw]">
             13&ndash;14 November 2026 &middot;
             <br />
             Accra, Ghana
           </p>
-          <p className="font-playfair text-[20px] leading-[1.35] italic tracking-[-0.02em] text-[#a9aaaa] md:mt-[0.6cqw] md:text-[1.337cqw]">
+          <p className="font-playfair text-[20px] leading-[1.35] italic tracking-[-0.02em] text-[#a9aaaa] lg:mt-[0.6cqw] lg:text-[1.337cqw]">
             Venue to be confirmed
           </p>
         </div>
 
         {/* The design's first line is indented with leading spaces, so the
             indent is reproduced here rather than "fixed". */}
-        <p className="font-space-grotesk text-[20px] leading-[1.3] font-medium tracking-[-0.02em] text-white md:absolute md:top-[33.03%] md:left-[55.21%] md:w-[41.38%] md:text-[1.604cqw] md:[text-indent:61.4%]">
+        <p className="font-space-grotesk text-[20px] leading-[1.3] font-medium tracking-[-0.02em] text-white lg:absolute lg:top-[33.03%] lg:left-[55.21%] lg:w-[41.38%] lg:text-[1.604cqw] lg:[text-indent:61.4%]">
           Blockchain &amp; Crypto Conference Ghana&nbsp; brings together the builders,{" "}
           <span className="font-playfair font-normal text-[#b2d4f9] italic">
             protocols, infrastructure, capital and talent advancing blockchain innovation and

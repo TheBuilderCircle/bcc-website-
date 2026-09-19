@@ -3,6 +3,7 @@ import { experienceTracks } from "@/lib/content";
 import { clusterA, clusterB, clusterC } from "@/lib/illustrations";
 import FragmentIllustration from "@/components/ui/FragmentIllustration";
 import ExperienceBlock from "./ExperienceBlock";
+import ExperiencesMobile from "./ExperiencesMobile";
 
 const aligns: Array<"left" | "right"> = ["right", "left", "left", "right", "left"];
 
@@ -111,10 +112,12 @@ export default function ExperiencesTimeline() {
         </p>
       </div>
 
+      <ExperiencesMobile />
+
       {/* Timeline column: the design starts it at y 230.5 (6px less than the
           heading frame's 225 bottom + pt above) and the path is 762.15x2816.5
           there, so the path is sized rather than stretched to the block list. */}
-      <div className="relative mx-auto mt-24 flex max-w-[1279px] flex-col gap-32 px-6 lg:mt-[5.5px] lg:h-[3236.5px] lg:gap-0">
+      <div className="relative mx-auto hidden max-w-[1279px] px-6 lg:mt-[5.5px] lg:block lg:h-[3236.5px]">
         <img
           src="/svg/decorative/timeline-path.svg"
           alt=""

@@ -18,7 +18,7 @@ export default function StayConnectedBand({ hasPhoto = false }: { hasPhoto?: boo
             <div className="absolute inset-0 bg-black/[0.77]" />
           </>
         )}
-        <div className="relative flex flex-col items-start justify-between gap-10 px-10 py-16 md:flex-row md:items-end">
+        <div className="relative flex flex-col items-start justify-between gap-10 px-6 py-16 sm:px-10 lg:flex-row lg:items-end">
           <div className="flex max-w-[395px] flex-col items-start gap-5">
             <h2 className="font-space-grotesk text-stay-connected font-bold text-white">
               Stay Connected
