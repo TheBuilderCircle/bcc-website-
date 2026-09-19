@@ -1,7 +1,11 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { experienceTracks } from "@/lib/content";
+import {
+  registrationForms,
+  type FieldConfig,
+  type RegistrationType,
+} from "@/lib/registration-forms";
 
 const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID
   ? `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID}`
@@ -9,22 +13,70 @@ const FORMSPREE_ENDPOINT = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-const fieldClasses =
-  "h-[54px] w-full rounded-control border border-input-border bg-ink px-4 font-body text-form-field text-white outline-none placeholder:text-muted";
+const controlClasses =
+  "w-full rounded-control border border-input-border bg-ink px-4 font-body text-form-field text-white outline-none placeholder:text-muted focus:border-accent";
 
-function Field({ label, name, type }: { label: string; name: string; type: string }) {
+function Field({ field }: { field: FieldConfig }) {
+  const { name, label, kind, options, required, wide, placeholder } = field;
   return (
-    <div className="flex flex-col items-start">
+    <div className={`flex flex-col items-start ${wide ? "sm:col-span-2" : ""}`}>
       <label htmlFor={name} className="pb-2 font-space-grotesk text-form-label font-medium text-white">
         {label}
+        {!required && <span className="pl-2 font-body text-sm text-muted">Optional</span>}
       </label>
-      <input id={name} name={name} type={type} placeholder={label} required className={fieldClasses} />
+      {kind === "select" ? (
+        <select
+          id={name}
+          name={name}
+          defaultValue=""
+          required={required}
+          className={`${controlClasses} h-[54px]`}
+        >
+          <option value="" disabled>
+            Select an option
+          </option>
+          {options?.map((o) => (
+            <option key={o} value={o}>
+              {o}
+            </option>
+          ))}
+        </select>
+      ) : kind === "textarea" ? (
+        <textarea
+          id={name}
+          name={name}
+          rows={4}
+          required={required}
+          placeholder={placeholder ?? label}
+          className={`${controlClasses} resize-y py-3`}
+        />
+      ) : (
+        <input
+          id={name}
+          name={name}
+          type={kind}
+          required={required}
+          placeholder={placeholder ?? label}
+          className={`${controlClasses} h-[54px]`}
+        />
+      )}
     </div>
   );
 }
 
-export default function RegisterForm() {
+export default function RegisterForm({
+  initialType = "delegate",
+}: {
+  initialType?: RegistrationType;
+}) {
+  const [type, setType] = useState<RegistrationType>(initialType);
   const [status, setStatus] = useState<Status>("idle");
+  const config = registrationForms.find((f) => f.type === type)!;
+
+  function selectType(next: RegistrationType) {
+    setType(next);
+    setStatus("idle");
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -59,35 +111,42 @@ export default function RegisterForm() {
   return (
     <form onSubmit={handleSubmit} className="mx-auto flex max-w-[768px] flex-col px-6">
       <div className="flex flex-col gap-0 rounded-panel p-10 text-left">
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-          <Field label="Full Name" name="fullName" type="text" />
-          <Field label="Email Address" name="email" type="email" />
-          <Field label="Phone / WhatsApp Number" name="phone" type="tel" />
-          <Field label="Organisation / Company" name="organisation" type="text" />
-          <Field label="Job Title / Role" name="jobTitle" type="text" />
-          <Field label="Country" name="country" type="text" />
+        <div
+          role="tablist"
+          aria-label="Registration type"
+          className="mb-8 grid grid-cols-2 gap-2 rounded-control border border-input-border p-1.5 sm:grid-cols-4"
+        >
+          {registrationForms.map((f) => {
+            const active = f.type === type;
+            return (
+              <button
+                key={f.type}
+                type="button"
+                role="tab"
+                aria-selected={active}
+                onClick={() => selectType(f.type)}
+                className={`h-11 rounded-[8px] font-space-grotesk text-form-label font-medium transition-colors ${
+                  active ? "bg-accent text-white" : "text-muted hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                {f.tab}
+              </button>
+            );
+          })}
         </div>
 
-        <div className="flex flex-col items-start gap-2 py-5">
-          <label htmlFor="interest" className="font-space-grotesk text-form-label font-medium text-white">
-            I am primarily interested in
-          </label>
-          <select
-            id="interest"
-            name="interest"
-            defaultValue=""
-            required
-            className="h-[54px] w-full rounded-control border border-input-border bg-ink px-4 font-body text-form-field text-white outline-none"
-          >
-            <option value="" disabled>
-              Select an option
-            </option>
-            {experienceTracks.map((track) => (
-              <option key={track.id} value={track.title}>
-                {track.title}
-              </option>
-            ))}
-          </select>
+        <div className="pb-6">
+          <h2 className="font-space-grotesk text-experience-title font-medium text-white">
+            {config.heading}
+          </h2>
+          <p className="pt-2 font-body text-base text-muted">{config.blurb}</p>
+        </div>
+
+        <input type="hidden" name="registrationType" value={type} />
+        <div key={type} className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          {config.fields.map((field) => (
+            <Field key={field.name} field={field} />
+          ))}
         </div>
 
         <label className="flex items-start gap-3 py-7">
@@ -109,13 +168,13 @@ export default function RegisterForm() {
             disabled={status === "submitting"}
             className="h-[54px] w-full rounded-control bg-accent font-space-grotesk text-btn-form font-medium text-white hover:bg-accent-hover disabled:opacity-60"
           >
-            {status === "submitting" ? "Submitting…" : "Submit registration"}
+            {status === "submitting" ? "Submitting…" : config.submitLabel}
           </button>
         </div>
 
         {status === "success" && (
           <p className="text-center font-body text-sm text-accent-deep">
-            Thanks &mdash; your registration has been received.
+            {config.successMessage}
           </p>
         )}
         {status === "error" && (

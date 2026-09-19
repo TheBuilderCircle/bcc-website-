@@ -82,6 +82,17 @@ export default function ExperiencesTimeline() {
       <div aria-hidden className="pointer-events-none absolute left-[298px] top-[226px] z-[5] hidden h-[134px] w-[321px] bg-gradient-to-b from-page to-transparent lg:block" />
       <div aria-hidden className="pointer-events-none absolute left-[898px] top-[2889px] z-[5] hidden h-[200px] w-[393px] bg-gradient-to-t from-page to-transparent lg:block" />
 
+      {/* The design's "Frame 26": a rotating blue badge with a white glyph that
+          sits on the curve at 979,1247 (rendered box 129.25 square, because the
+          106.37 square is rotated 165.761deg). Extracted from the reference with
+          its inner-shadow filter. Above the path, like the design's layer order. */}
+      <img
+        src="/svg/decorative/experiences/curve-arrow.svg"
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute left-[979px] top-[1247px] z-[5] hidden w-[129.25px] lg:block"
+      />
+
       {/* Heading frame: 1279 wide, 149 tall, from y 76, h2 38/46, body 16/19. */}
       <div className="relative mx-auto flex max-w-[1279px] flex-col items-center gap-[19px] px-6 text-center">
         <h2 className="max-w-[461px] font-space-grotesk text-section leading-[46px] font-medium text-ink-strong">
