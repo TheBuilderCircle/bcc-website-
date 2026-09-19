@@ -1,12 +1,10 @@
 import Pill from "@/components/ui/Pill";
 import Button from "@/components/ui/Button";
-import GuideLines from "@/components/ui/GuideLines";
 import { aboutChips } from "@/lib/content";
 
 export default function ConvenedBy() {
   return (
     <section className="relative bg-page py-24">
-      <GuideLines />
       <div className="relative mx-auto flex max-w-[1239px] flex-col items-center gap-5 px-6 text-center">
         <h2 className="max-w-[841px] font-space-grotesk text-section font-medium text-ink-strong">
           Convened by The Builders Circle Ghana.

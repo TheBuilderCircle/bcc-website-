@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { experienceTracks } from "@/lib/content";
 import { clusterA, clusterB, clusterC } from "@/lib/illustrations";
-import GuideLines from "@/components/ui/GuideLines";
 import FragmentIllustration from "@/components/ui/FragmentIllustration";
 import ExperienceBlock from "./ExperienceBlock";
 
@@ -35,8 +34,6 @@ const washes: Array<[number, number, number, number, string]> = [
 export default function ExperiencesTimeline() {
   return (
     <section id="experiences" className="relative overflow-hidden bg-page pt-[76px] pb-24">
-      <GuideLines horizontalPositions={[3469.5, 3561.5]} />
-
       {washes.map(([left, top, width, height, color]) => (
         <div
           key={`${left}-${top}`}
