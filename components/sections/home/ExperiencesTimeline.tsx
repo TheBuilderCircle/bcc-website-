@@ -106,7 +106,7 @@ export default function ExperiencesTimeline() {
         <h2 className="max-w-[461px] font-space-grotesk text-section leading-[46px] font-medium text-ink-strong">
           One Conference, Five Connected Experiences.
         </h2>
-        <p className="max-w-[587px] font-body text-base leading-[19px] text-muted">
+        <p className="max-w-[587px] font-body text-base leading-[19px] text-[#666]">
           BCCG targets blockchain communities, providing spaces for policy, technology, products,
           capital, and talent, ensuring connections at the event.
         </p>

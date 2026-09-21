@@ -22,7 +22,7 @@ export default function ExperienceBlock({
             {track.subLine}
           </p>
         </div>
-        <p className="whitespace-pre-line font-body text-base leading-[19px] text-muted">{track.body}</p>
+        <p className="whitespace-pre-line font-body text-base leading-[19px] text-[#666]">{track.body}</p>
       </div>
     </div>
   );
