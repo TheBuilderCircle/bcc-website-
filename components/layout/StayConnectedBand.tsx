@@ -10,7 +10,7 @@ export default function StayConnectedBand({ hasPhoto = false }: { hasPhoto?: boo
         {hasPhoto && (
           <>
             <Image
-              src="/images/stay-connected-bg.jpg"
+              src="/community/sui-ghana-classroom-group.jpg"
               alt=""
               fill
               className="object-cover opacity-80"

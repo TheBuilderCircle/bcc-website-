@@ -8,7 +8,7 @@ export default function Hero() {
     <div className="relative mx-2 overflow-hidden rounded-panel bg-ink">
       <div className="absolute inset-[14px] overflow-hidden opacity-30">
         <Image
-          src="/images/hero-stage.jpg"
+          src="/community/ayahq-lisk-panel-session.jpg"
           alt=""
           fill
           className="object-cover object-[48.585%_14.043%]"
