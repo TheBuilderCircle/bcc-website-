@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 const photos = [
-  { src: "/images/photo-row-1.jpg", position: "50% 62.903%" },
-  { src: "/images/photo-row-2.jpg", position: "0% 0.23%" },
-  { src: "/images/photo-row-3.jpg", position: "center" },
-  { src: "/images/photo-row-4.jpg", position: "50% 50%" },
+  { src: "/community/celo-africadao-workshop.jpg", position: "50% 40%" },
+  { src: "/community/devconnect-diaries-talk.jpg", position: "60% 50%" },
+  { src: "/community/ayahq-workshop-laptops.jpg", position: "center" },
+  { src: "/community/betech-afrotalks-group.jpg", position: "50% 40%" },
 ];
 
 /** How many copies of the 4-photo set sit in the track. The track slides left by

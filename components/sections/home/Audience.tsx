@@ -8,11 +8,12 @@ export default function Audience() {
     <section className="relative isolate mx-2 my-2 overflow-hidden rounded-panel bg-ink px-8 py-16">
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <Image
-          src="/images/audience-bg.jpg"
+          src="/community/betech-group-hall.jpg"
           alt=""
           fill
           className="object-cover mix-blend-exclusion"
         />
+        <div className="absolute inset-0 bg-ink/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/90 to-transparent" />
       </div>
       <BlurredBlob src="/svg/decorative/blob-1.svg" className="right-0 top-0 h-[500px] w-[600px]" />
@@ -25,7 +26,7 @@ export default function Audience() {
           The Entire Market,{" "}
           <span className="font-playfair italic text-accent-deep">Connected</span>
         </h2>
-        <p className="max-w-[486px] font-body text-base text-muted">
+        <p className="max-w-[486px] font-body text-base text-muted-serif">
           BCCG is designed for people working across the blockchain and digital economy
           ecosystem.
         </p>

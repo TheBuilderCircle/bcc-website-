@@ -15,7 +15,7 @@ export default function AudienceCard({ card }: { card: AudienceCardType }) {
   return (
     <div
       className={`flex flex-col items-start gap-2.5 rounded-panel px-8 py-6 ${
-        isLight ? "bg-card-light" : "bg-card-dark/20"
+        isLight ? "bg-card-light" : "bg-card-dark/85 backdrop-blur-md"
       }`}
     >
       <div className="flex h-[38px] w-[38px] items-center justify-center rounded-pill bg-accent/20">
@@ -29,7 +29,13 @@ export default function AudienceCard({ card }: { card: AudienceCardType }) {
         >
           {card.title}
         </h3>
-        <p className="max-w-[392px] font-body text-base text-muted">{card.body}</p>
+        <p
+          className={`max-w-[392px] font-body text-base ${
+            isLight ? "text-ink-strong" : "text-muted-serif"
+          }`}
+        >
+          {card.body}
+        </p>
       </div>
     </div>
   );
