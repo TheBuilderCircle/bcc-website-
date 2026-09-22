@@ -28,7 +28,7 @@ export default function NewsletterSignup({ variant = "footer" }: { variant?: Var
   return (
     <div className="flex flex-col items-start gap-px">
       <div className={`py-2.5 pr-2.5 ${s.label} font-space-grotesk text-base font-bold text-white`}>
-        Get all latest updates from Kwekutech
+        Get all latest updates from BCC
       </div>
       <div className={`flex w-full flex-col gap-2.5 ${s.row}`}>
         <div
