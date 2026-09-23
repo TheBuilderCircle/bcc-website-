@@ -19,7 +19,7 @@ export type RegistrationForm = {
   heading: string;
   blurb: string;
   submitLabel: string;
-  successMessage: string;
+  formspreeEndpoint: string;
   fields: FieldConfig[];
 };
 
@@ -36,11 +36,11 @@ const phone: FieldConfig = {
 export const registrationForms: RegistrationForm[] = [
   {
     type: "delegate",
+    formspreeEndpoint: "https://formspree.io/f/xzezedvd",
     tab: "Delegate",
     heading: "Attend as a delegate",
     blurb: "Join two days of conversations, workshops and connections across Africa's blockchain ecosystem.",
     submitLabel: "Register as a delegate",
-    successMessage: "Thanks — your delegate registration has been received.",
     fields: [
       { name: "fullName", label: "Full Name", kind: "text", required: true },
       { name: "email", label: "Email Address", kind: "email", required: true },
@@ -67,11 +67,11 @@ export const registrationForms: RegistrationForm[] = [
   },
   {
     type: "partner",
+    formspreeEndpoint: "https://formspree.io/f/xnpnpjzr",
     tab: "Partner",
     heading: "Partner with BCCG",
     blurb: "Tell us about your organisation and how you would like to be part of BCCG 2026.",
     submitLabel: "Submit partnership enquiry",
-    successMessage: "Thanks — our partnerships team will be in touch shortly.",
     fields: [
       { name: "fullName", label: "Contact Person", kind: "text", required: true },
       { name: "email", label: "Work Email", kind: "email", required: true },
@@ -105,11 +105,11 @@ export const registrationForms: RegistrationForm[] = [
   },
   {
     type: "volunteer",
+    formspreeEndpoint: "https://formspree.io/f/xaeneqbr",
     tab: "Volunteer",
     heading: "Volunteer at BCCG",
     blurb: "Help us run a great conference and get a behind-the-scenes look at the event.",
     submitLabel: "Apply to volunteer",
-    successMessage: "Thanks — we've received your volunteer application.",
     fields: [
       { name: "fullName", label: "Full Name", kind: "text", required: true },
       { name: "email", label: "Email Address", kind: "email", required: true },
@@ -154,11 +154,11 @@ export const registrationForms: RegistrationForm[] = [
   },
   {
     type: "speaker",
+    formspreeEndpoint: "https://formspree.io/f/mqpapedz",
     tab: "Speaker",
     heading: "Speak at BCCG",
     blurb: "Share your expertise with builders, investors and policymakers. Submissions are reviewed by our programme team.",
     submitLabel: "Submit speaker proposal",
-    successMessage: "Thanks — your speaker proposal has been received.",
     fields: [
       { name: "fullName", label: "Full Name", kind: "text", required: true },
       { name: "email", label: "Email Address", kind: "email", required: true },

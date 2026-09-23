@@ -11,6 +11,7 @@ export default function Audience() {
           src="/community/betech-group-hall.jpg"
           alt=""
           fill
+          sizes="100vw"
           className="object-cover mix-blend-exclusion"
         />
         <div className="absolute inset-0 bg-ink/60" />

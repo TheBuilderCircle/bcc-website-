@@ -11,6 +11,8 @@ export default function Hero() {
           src="/community/ayahq-lisk-panel-session.jpg"
           alt=""
           fill
+          sizes="100vw"
+          preload
           className="object-cover object-[48.585%_14.043%]"
         />
       </div>

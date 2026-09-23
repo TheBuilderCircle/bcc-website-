@@ -13,6 +13,7 @@ export default function StayConnectedBand({ hasPhoto = false }: { hasPhoto?: boo
               src="/community/sui-ghana-classroom-group.jpg"
               alt=""
               fill
+              sizes="(min-width: 1512px) 1464px, 100vw"
               className="object-cover opacity-80"
             />
             <div className="absolute inset-0 bg-black/[0.77]" />

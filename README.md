@@ -13,7 +13,6 @@ Requires Node 18+.
 
 ```bash
 npm install
-cp .env.local.example .env.local   # then fill in your Formspree form ID
 npm run dev
 ```
 
@@ -31,6 +30,8 @@ Scripts: `npm run dev`, `npm run build`, `npm run start`, `npm run lint`.
 - `lib/content.ts` — copy that's shared across multiple components (nav items, the five
   experience tracks, audience/partner card data, footer links) — edit copy here rather than in
   the components.
+- `lib/registration-forms.ts` — the four Register tabs (fields, copy, and each tab's Formspree
+  endpoint).
 - `public/svg/` — decorative art and icons, authored directly from the design's exported SVG
   markup.
 - `public/images/` — real photos go here (see checklist below); referenced by filename from the
@@ -38,9 +39,6 @@ Scripts: `npm run dev`, `npm run build`, `npm run start`, `npm run lint`.
 
 ## Still needed from you
 
-- [ ] A Formspree form ID in `.env.local`'s `NEXT_PUBLIC_FORMSPREE_FORM_ID` (create one at
-      [formspree.io](https://formspree.io)). Without it, the register form shows an error instead
-      of submitting.
 - [ ] Drop these photos into `public/images/` (any of them missing just renders as a blank image
       box until supplied):
   - `hero-stage.jpg` — Home hero background
@@ -52,8 +50,3 @@ Scripts: `npm run dev`, `npm run build`, `npm run start`, `npm run lint`.
 - [ ] Confirm the Register form's "I am primarily interested in" options — currently the five
       conference experience-track names, sourced from `lib/content.ts`'s `experienceTracks`
       (the original Figma file left this list undefined).
-
-## Deployment
-
-If deploying to Vercel (or similar), set `NEXT_PUBLIC_FORMSPREE_FORM_ID` in the project's
-environment variables — `.env.local` is git-ignored and won't be picked up automatically.
