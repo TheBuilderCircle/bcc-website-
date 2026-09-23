@@ -32,14 +32,23 @@ const washes: Array<[number, number, number, number, string]> = [
   [-150, 2650, 650, 600, "rgba(214,200,240,0.5)"],
 ];
 
+/** The decorations below are placed in 1512px-canvas coordinates. The page zoom
+ * (globals.css) caps at 1, so past 1512px the section is wider than the canvas;
+ * this layer keeps the canvas centred, like the timeline column, so they don't
+ * drift off the path. Centred with calc, not a transform, so it adds no stacking
+ * context and the z-[5] fades still sit over the path. */
+const canvasLayer =
+  "pointer-events-none absolute inset-y-0 left-[calc(50%-756px)] hidden w-[1512px] lg:block";
+
 export default function ExperiencesTimeline() {
   return (
     <section id="experiences" className="relative overflow-hidden bg-page pt-[76px] pb-24">
+      <div aria-hidden className={canvasLayer}>
       {washes.map(([left, top, width, height, color]) => (
         <div
           key={`${left}-${top}`}
           aria-hidden
-          className="pointer-events-none absolute hidden blur-[60px] lg:block"
+          className="pointer-events-none absolute blur-[60px]"
           style={{
             left,
             top,
@@ -55,7 +64,7 @@ export default function ExperiencesTimeline() {
         fragments={clusterA}
         widthPx={455.841}
         heightPx={499.999}
-        className="absolute left-[146px] top-[409px] hidden w-[456px] lg:block"
+        className="absolute left-[146px] top-[409px] w-[456px]"
       />
       {/* Placed at its design frame ("Frame 1597882579"): 384.86x471.23 at
           148.14px from the right, 1842px down on the 1512px canvas. */}
@@ -63,7 +72,7 @@ export default function ExperiencesTimeline() {
         fragments={clusterB}
         widthPx={384.857}
         heightPx={471.225}
-        className="absolute right-[148.14px] top-[1842px] hidden w-[384.86px] lg:block"
+        className="absolute right-[148.14px] top-[1842px] w-[384.86px]"
       />
       {/* Placed at its design frame: 350x208, 176px from the right, 892px down
           on the 1512px canvas. */}
@@ -71,7 +80,7 @@ export default function ExperiencesTimeline() {
         src="/svg/decorative/arrow-pair.svg"
         alt=""
         aria-hidden
-        className="pointer-events-none absolute right-[176px] top-[892px] hidden w-[350px] lg:block"
+        className="pointer-events-none absolute right-[176px] top-[892px] w-[350px]"
       />
       {/* The coral shape nested in clusterB's Figma group, but positioned against
           the canvas rather than the cluster frame: 200.37x199.285 at 890,1997. */}
@@ -79,7 +88,7 @@ export default function ExperiencesTimeline() {
         src="/svg/decorative/coral-ring.svg"
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-[890px] top-[1997px] hidden w-[200.37px] lg:block"
+        className="pointer-events-none absolute left-[890px] top-[1997px] w-[200.37px]"
       />
       {/* Two more canvas-positioned shapes whose percentages resolve against the
           1512x3563 canvas, not a cluster frame. The design reuses clusterA's
@@ -89,17 +98,18 @@ export default function ExperiencesTimeline() {
         src="/svg/decorative/experiences/cluster-a/frag-51-112-1834.svg"
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-[402.04px] top-[2506.9px] hidden w-[154.127px] lg:block"
+        className="pointer-events-none absolute left-[402.04px] top-[2506.9px] w-[154.127px]"
       />
       <img
         src="/svg/decorative/experiences/cluster-a/frag-58-112-1848.svg"
         alt=""
         aria-hidden
-        className="pointer-events-none absolute left-[138.05px] top-[2417.85px] hidden w-[112.231px] lg:block"
+        className="pointer-events-none absolute left-[138.05px] top-[2417.85px] w-[112.231px]"
       />
 
-      <div aria-hidden className="pointer-events-none absolute left-[298px] top-[226px] z-[5] hidden h-[134px] w-[321px] bg-gradient-to-b from-page to-transparent lg:block" />
-      <div aria-hidden className="pointer-events-none absolute left-[898px] top-[2889px] z-[5] hidden h-[200px] w-[393px] bg-gradient-to-t from-page to-transparent lg:block" />
+      <div aria-hidden className="pointer-events-none absolute left-[298px] top-[226px] z-[5] h-[134px] w-[321px] bg-gradient-to-b from-page to-transparent" />
+      <div aria-hidden className="pointer-events-none absolute left-[898px] top-[2889px] z-[5] h-[200px] w-[393px] bg-gradient-to-t from-page to-transparent" />
+      </div>
 
       {/* Heading frame: 1279 wide, 149 tall, from y 76, h2 38/46, body 16/19. */}
       <div className="relative mx-auto flex max-w-[1279px] flex-col items-center gap-[19px] px-6 text-center">
@@ -160,13 +170,15 @@ export default function ExperiencesTimeline() {
         ))}
       </div>
 
+      <div aria-hidden className={canvasLayer}>
       {/* clusterC's design frame ("Frame 1597882580"): 221.62x500 at 212,2406. */}
       <FragmentIllustration
         fragments={clusterC}
         widthPx={221.62}
         heightPx={499.999}
-        className="absolute left-[212px] top-[2406px] hidden w-[221.62px] lg:block"
+        className="absolute left-[212px] top-[2406px] w-[221.62px]"
       />
+      </div>
     </section>
   );
 }
