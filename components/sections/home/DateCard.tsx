@@ -138,12 +138,12 @@ export default function DateCard() {
 
         <div className="flex flex-col gap-3 lg:absolute lg:top-[69.98%] lg:left-[3.54%] lg:w-[20%] lg:gap-0">
           <p className="font-space-grotesk text-[20px] leading-[1.2] font-bold tracking-[-0.02em] text-white lg:text-[1.337cqw]">
-            13&ndash;14 November 2026 &middot;
+            13&ndash;11 December 2026 &middot;
             <br />
             Accra, Ghana
           </p>
           <p className="font-playfair text-[20px] leading-[1.35] italic tracking-[-0.02em] text-[#a9aaaa] lg:mt-[0.6cqw] lg:text-[1.337cqw]">
-            Venue to be confirmed
+            Ghana Shippers Authority
           </p>
         </div>
 
