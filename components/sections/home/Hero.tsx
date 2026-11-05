@@ -49,7 +49,7 @@ export default function Hero() {
         </div>
         <div className="flex flex-col items-center">
             <span className="whitespace-nowrap font-space-grotesk text-hero font-medium text-white">
-              11 December 2026 <HighlightedWord tone="blue">Ghana Shippers Authority, Accra Ghana</HighlightedWord>
+              11 December 2026 - <HighlightedWord tone="blue">Ghana Shippers Authority, Accra Ghana</HighlightedWord>
             </span>
           </div>
       </div>
