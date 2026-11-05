@@ -47,11 +47,26 @@ export default function Hero() {
             Register
           </Button>
         </div>
-        <div className="flex flex-col items-center">
-            <span className="whitespace-nowrap font-space-grotesk text-hero font-medium text-white">
-              11 December 2026 - <HighlightedWord tone="blue">Ghana Shippers Authority, Accra Ghana</HighlightedWord>
+        <div className="flex flex-col items-center gap-2 text-center">
+          <span className="font-space-grotesk text-xl font-medium leading-tight text-white sm:text-2xl md:text-3xl lg:text-hero">
+            11 December 2026
+            <span className="hidden sm:inline"> - </span>
+        
+            <span className="block sm:inline">
+              <HighlightedWord tone="blue">
+                <a
+                  href="https://maps.app.goo.gl/AkwNTJ3FVbYZuWQB8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 transition-opacity hover:opacity-80"
+                  aria-label="View Ghana Shippers Authority on Google Maps"
+                >
+                  📍 Ghana Shippers Authority, Accra Ghana
+                </a>
+              </HighlightedWord>
             </span>
-          </div>
+          </span>
+        </div>
       </div>
     </div>
   );
