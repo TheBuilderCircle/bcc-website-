@@ -39,7 +39,7 @@ export const registrationForms: RegistrationForm[] = [
     formspreeEndpoint: "https://formspree.io/f/xzezedvd",
     tab: "Delegate",
     heading: "Attend as a delegate",
-    blurb: "Join two days of conversations, workshops and connections across Africa's blockchain ecosystem.",
+    blurb: "Experience a day of insightful conversations, hands-on workshops and meaningful connections across Africa's blockchain ecosystem.",
     submitLabel: "Register as a delegate",
     fields: [
       { name: "fullName", label: "Full Name", kind: "text", required: true },
