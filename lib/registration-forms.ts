@@ -141,7 +141,7 @@ export const registrationForms: RegistrationForm[] = [
         name: "availability",
         label: "Availability",
         kind: "select",
-        options: ["Both days (13–14 Nov)", "13 November only", "14 November only"],
+        options: ["11 December 2026"],
         required: true,
       },
       {

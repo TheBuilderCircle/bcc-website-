@@ -8,7 +8,7 @@ import RegisterHero from "@/components/sections/register/RegisterHero";
 export const metadata: Metadata = {
   title: "Register | Blockchain & Crypto Conference Ghana (BCCG) 2026",
   description:
-    "Register for BCCG 2026 — 13–14 November 2026, Accra, Ghana.",
+    "Register for BCCG 2026 — 11 December 2026, Accra, Ghana.",
 };
 
 export default async function RegisterPage({
