@@ -43,7 +43,7 @@ const familjenGrotesk = Familjen_Grotesk({
 export const metadata: Metadata = {
   title: "Blockchain & Crypto Conference Ghana (BCCG) 2026",
   description:
-    "BCCG 2026 brings together the builders, protocols, infrastructure, capital and talent advancing blockchain innovation in Ghana and across Africa. 13–14 November 2026, Accra.",
+    "BCCG 2026 brings together the builders, protocols, infrastructure, capital and talent advancing blockchain innovation in Ghana and across Africa. 11 December 2026, Accra.",
 };
 
 export default function RootLayout({
