@@ -178,7 +178,7 @@ export const footerColumns = {
     { label: "Media enquiries", href: "#" },
   ],
   connect: [
-    { label: "X", href: "https://x.com/Builders_Circle" },
+    { label: "X", href: "https://x.com/BCC_Ghana" },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/the-builders-circle-ghana/" },
     { label: "Instagram", href: "https://www.instagram.com/bcc_ghana?cplk=ZDNlZDc0MzIxNw==" },
     { label: "Youtube", href: "#" },
