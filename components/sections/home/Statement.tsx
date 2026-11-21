@@ -8,7 +8,7 @@ export default function Statement() {
         <h2 className="max-w-[841px] font-space-grotesk text-section font-medium text-ink-strong">
           Blockchain is moving beyond experimentation into infrastructure.
         </h2>
-        <p className="max-w-[817px] font-body text-base text-muted">
+        <p className="max-w-[817px] font-body text-base text-muted-on-light">
           Across payments, tokenisation, digital identity, decentralized applications and new
           financial rails, the focus is shifting from what blockchain could do to what can
           actually be built, deployed and scaled.

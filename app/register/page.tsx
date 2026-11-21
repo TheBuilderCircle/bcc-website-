@@ -19,11 +19,9 @@ export default async function RegisterPage({
   const { type } = await searchParams;
   return (
     <>
-      <div className="relative pt-[65px]">
+      <div className="relative pt-2">
         <RegisterHero initialType={isRegistrationType(type) ? type : undefined} />
-        <div className="absolute inset-x-[45px] top-[75px] z-20">
-          <SiteNav />
-        </div>
+        <SiteNav />
       </div>
       <StayConnectedBand />
       <SiteFooter />

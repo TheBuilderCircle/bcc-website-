@@ -40,7 +40,7 @@ export default function Hero() {
           </p>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-2">
-          <Button href="/about" variant="outline-dark" className="w-[197px]">
+          <Button href="/partners" variant="outline-dark" className="w-[197px]">
             Partner with us
           </Button>
           <Button href="/register" variant="primary" className="w-[195px]">

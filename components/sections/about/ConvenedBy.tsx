@@ -9,12 +9,12 @@ export default function ConvenedBy() {
         <h2 className="max-w-[841px] font-space-grotesk text-section font-medium text-ink-strong">
           Convened by The Builders Circle Ghana.
         </h2>
-        <p className="max-w-[785px] font-body text-base text-muted">
+        <p className="max-w-[785px] font-body text-base text-muted-on-light">
           The Builders Circle Ghana is developing ecosystem infrastructure that connects
           communities, protocols, institutions and talent around responsible emerging technology
           adoption.
         </p>
-        <p className="max-w-[785px] font-body text-base leading-relaxed text-muted">
+        <p className="max-w-[785px] font-body text-base leading-relaxed text-muted-on-light">
           <span className="font-playfair text-md-tight italic text-accent">
             Institution first. Event second.
           </span>{" "}
@@ -27,9 +27,14 @@ export default function ConvenedBy() {
             <Pill key={chip}>{chip}</Pill>
           ))}
         </div>
-        <Button href="/register" size="form">
-          Be part of BCCG 2026
-        </Button>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <Button href="/register" size="form">
+            Be part of BCCG 2026
+          </Button>
+          <Button href="https://tbcghana.org" external variant="outline-light" size="form">
+            Visit tbcghana.org
+          </Button>
+        </div>
       </div>
     </section>
   );

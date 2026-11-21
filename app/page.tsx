@@ -7,21 +7,21 @@ import ExperiencesTimeline from "@/components/sections/home/ExperiencesTimeline"
 import Audience from "@/components/sections/home/Audience";
 import CtaPanel from "@/components/sections/home/CtaPanel";
 import Partners from "@/components/sections/home/Partners";
+import PartnerMarquee from "@/components/sections/home/PartnerMarquee";
 
 export default function HomePage() {
   return (
     <>
-      <div className="relative pt-[65px]">
+      <div className="relative pt-2">
         <Hero />
-        <div className="absolute inset-x-[45px] top-[75px] z-20">
-          <SiteNav />
-        </div>
+        <SiteNav />
       </div>
       <Statement />
       <ExperiencesTimeline />
       <Audience />
       <CtaPanel />
       <Partners />
+      <PartnerMarquee />
       <StayConnectedBand hasPhoto />
       <SiteFooter />
     </>

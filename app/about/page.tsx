@@ -14,11 +14,9 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <div className="relative pt-[65px]">
+      <div className="relative pt-2">
         <AboutHero />
-        <div className="absolute inset-x-[45px] top-[75px] z-20">
-          <SiteNav />
-        </div>
+        <SiteNav />
       </div>
       <ConvenedBy />
       <StayConnectedBand />

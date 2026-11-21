@@ -23,7 +23,7 @@ export default function SiteFooter() {
 
   return (
     <footer className="bg-ink px-6 pt-[50.5px] pb-10 md:px-25 xl:px-42.5">
-      <div className="mx-auto flex max-w-[1173px] flex-wrap items-start gap-x-[90px] gap-y-10">
+      <div className="mx-auto flex max-w-[1173px] flex-wrap items-start justify-between gap-x-[90px] gap-y-10">
         <div className="flex w-[237px] flex-col items-start gap-[26px]">
           <img src="/svg/decorative/logo.svg" alt="BCCG" className="h-[38.919px] w-[84px]" />
           <p className="font-body text-base font-medium text-muted-footer">
@@ -37,28 +37,6 @@ export default function SiteFooter() {
           </div>
           <div className="flex flex-col items-start">
             {footerColumns.navigation.map((item) => (
-              <FooterLink key={item.label} item={item} pathname={pathname} />
-            ))}
-          </div>
-        </div>
-
-        <div className="flex flex-col items-start">
-          <div className="whitespace-nowrap px-2.5 py-2.5 font-space-grotesk text-base font-bold text-white">
-            Legal
-          </div>
-          <div className="flex flex-col items-start">
-            {footerColumns.legal.map((item) => (
-              <FooterLink key={item.label} item={item} pathname={pathname} />
-            ))}
-          </div>
-        </div>
-
-        <div className="flex flex-col items-start">
-          <div className="whitespace-nowrap px-2.5 py-2.5 font-space-grotesk text-base font-bold text-white">
-            Contact
-          </div>
-          <div className="flex flex-col items-start">
-            {footerColumns.contact.map((item) => (
               <FooterLink key={item.label} item={item} pathname={pathname} />
             ))}
           </div>
@@ -85,7 +63,7 @@ export default function SiteFooter() {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-6">
             <span className="whitespace-nowrap font-familjen text-base font-medium text-muted-footer">
-              ©2025
+              ©2026
             </span>
             <span className="whitespace-nowrap font-familjen text-base font-medium text-muted-footer">
               All Rights Reserved

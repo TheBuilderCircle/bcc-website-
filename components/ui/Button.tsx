@@ -29,6 +29,8 @@ type CommonProps = {
 
 type LinkButtonProps = CommonProps & {
   href: string;
+  /** Opens the link in a new tab (for links that leave the site). */
+  external?: boolean;
 };
 
 type NativeButtonProps = CommonProps &
@@ -47,7 +49,11 @@ export default function Button({
 
   if ("href" in props && props.href) {
     return (
-      <Link href={props.href} className={classes}>
+      <Link
+        href={props.href}
+        className={classes}
+        {...(props.external && { target: "_blank", rel: "noopener noreferrer" })}
+      >
         {children}
       </Link>
     );

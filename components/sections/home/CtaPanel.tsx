@@ -14,13 +14,13 @@ export default function CtaPanel() {
               of <HighlightedWord tone="purple">BCCG 2026.</HighlightedWord>
             </span>
           </div>
-          <p className="max-w-[454px] font-body text-base text-muted">
+          <p className="max-w-[454px] font-body text-base text-muted-on-light">
             Join the people shaping the future of blockchain innovation in Ghana and across
             Africa.
           </p>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-2">
-          <Button href="/about" variant="outline-light" className="w-[197px]">
+          <Button href="/partners" variant="outline-light" className="w-[197px]">
             Partner with us
           </Button>
           <Button href="/register" variant="primary" className="w-[195px]">
