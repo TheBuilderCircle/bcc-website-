@@ -10,6 +10,8 @@ const linkLabels: { key: keyof PartnerLinks; label: string }[] = [
   { key: "linkedin", label: "LinkedIn" },
   { key: "x", label: "X" },
   { key: "instagram", label: "Instagram" },
+  { key: "facebook", label: "Facebook" },
+  { key: "youtube", label: "YouTube" },
   { key: "whatsapp", label: "WhatsApp" },
 ];
 
@@ -58,7 +60,9 @@ export default function PartnerDialog({
 
         <div
           className={`relative h-44 w-full overflow-hidden rounded-panel sm:h-52 ${
-            partner.tone === "dark" ? "bg-ink" : "bg-card-light shadow-[inset_0_0_0_1px_#e4e4e4]"
+            partner.tone === "dark"
+              ? "bg-ink"
+              : `${partner.tone === "cream" ? "bg-card-cream" : "bg-card-light"} shadow-[inset_0_0_0_1px_#e4e4e4]`
           }`}
         >
           <Image

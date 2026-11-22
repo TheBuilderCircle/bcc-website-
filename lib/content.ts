@@ -182,6 +182,8 @@ export type PartnerLinks = {
   x?: string;
   instagram?: string;
   whatsapp?: string;
+  facebook?: string;
+  youtube?: string;
 };
 
 export type Partner = {
@@ -193,8 +195,9 @@ export type Partner = {
   description?: string[];
   links?: PartnerLinks;
   src: string;
-  /** Tile background: "dark" for logos with white or black-edged artwork. */
-  tone: "light" | "dark";
+  /** Tile background: "dark" for logos with white or black-edged artwork, "cream"
+   * for logos baked onto an off-white (#faf7f3) background. */
+  tone: "light" | "dark" | "cream";
   /** Logo shape: "wide" for wordmarks, "badge" for round or square marks. */
   fit?: "wide" | "badge";
 };
@@ -364,6 +367,22 @@ export const partnerGroups: PartnerGroup[] = [
         src: "/partners/media/nana-yaw.jpg",
         tone: "dark",
         fit: "badge",
+      },
+      {
+        name: "Casuum",
+        type: "Media Partner",
+        role: "Content & opportunities platform",
+        description: [
+          "Casuum is a content and opportunities platform where creators, professionals and communities share their work and discover opportunities. Through Casuum, readers in Ghana and abroad can follow BCC Ghana and The Builders Circle Ghana, catch up on highlights from X Spaces and find official links to take part in upcoming events.",
+        ],
+        links: {
+          x: "https://x.com/casuumapps",
+          facebook: "https://www.facebook.com/share/1FHbDqowii/",
+          youtube: "https://youtube.com/@casuum-00",
+        },
+        src: "/partners/media/casuum.jpeg",
+        tone: "cream",
+        fit: "wide",
       },
       {
         name: "Kweku Tech",

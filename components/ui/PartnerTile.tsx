@@ -27,7 +27,7 @@ export default function PartnerTile({
   return (
     <li
       className={`group relative shrink-0 rounded-panel shadow-black/10 transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-xl ${
-        partner.tone === "dark" ? "bg-ink" : "bg-card-light"
+        partner.tone === "dark" ? "bg-ink" : partner.tone === "cream" ? "bg-card-cream" : "bg-card-light"
       } ${className}`}
     >
       <button
