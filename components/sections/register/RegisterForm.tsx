@@ -176,7 +176,7 @@ export default function RegisterForm({
         </div>
 
         <p className="py-8 text-center font-playfair text-register-note italic text-white/90">
-          Final venue information will be announced following confirmation.
+          Venue: Shippers House, Accra, Ghana.
         </p>
       </form>
 

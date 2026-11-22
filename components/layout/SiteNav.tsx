@@ -1,19 +1,30 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navItems, anchorHref } from "@/lib/content";
 import Button from "@/components/ui/Button";
 
-/** White-on-dark top nav. Always overlays a dark hero panel (see each
- * page's top-level `relative` wrapper), so it is positioned by the caller,
- * not by this component. The desktop layout below `xl` doesn't fit the
+/** White-on-dark top nav, fixed to the top of the viewport so it stays with
+ * the page as it scrolls. It is transparent over the dark hero panel and turns
+ * into a solid, blurred dark bar once the page scrolls (or the mobile menu is
+ * open), so the links stay readable over the light sections below. The desktop layout below `xl` doesn't fit the
  * fixed 1179px Figma width, so it collapses to a hamburger menu instead. */
 export default function SiteNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const solid = scrolled || open;
 
   const renderLink = (item: (typeof navItems)[number], onNavigate?: () => void) => {
     const href = item.anchor ? anchorHref(item.anchor, pathname) : item.href!;
@@ -37,7 +48,16 @@ export default function SiteNav() {
   };
 
   return (
-    <nav className="relative flex h-[78px] items-center justify-between gap-2.5 p-2.5">
+    <header
+      className={`fixed inset-x-2 top-2 z-50 rounded-panel px-[37px] transition-[background-color,box-shadow,padding] duration-300 ${
+        solid ? "bg-ink/85 pt-0 shadow-lg shadow-black/25 backdrop-blur-md" : "bg-transparent pt-2.5"
+      }`}
+    >
+    <nav
+      className={`relative flex items-center justify-between gap-2.5 p-2.5 transition-[height] duration-300 ${
+        scrolled ? "h-[68px]" : "h-[78px]"
+      }`}
+    >
       <div className="flex w-full items-center justify-between xl:w-294.75 xl:gap-150">
         <Link href="/" className="flex items-center">
           <img src="/svg/decorative/logo.svg" alt="BCCG" className="h-[38.919px] w-[84px]" />
@@ -86,5 +106,6 @@ export default function SiteNav() {
         </div>
       )}
     </nav>
+    </header>
   );
 }

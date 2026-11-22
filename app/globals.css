@@ -14,6 +14,7 @@
   --color-ink-card: #383838;
 
   --color-muted: #aaaaaa;
+  --color-muted-on-light: #666666; /* grey body text on the light page background (5.1:1) */
   --color-muted-serif: #cbcbcb;
   --color-muted-footer: #91a4a4;
   --color-muted-venue: #a9aaaa;
@@ -26,6 +27,7 @@
 
   --color-card-dark: #1a1919; /* used at /20 opacity for dark audience cards */
   --color-card-light: #ffffff;
+  --color-card-cream: #faf7f3;
 
   --color-marker-purple: #7300ff;
   --color-marker-dot-fill: #ece9e9;
@@ -137,6 +139,16 @@
     }
   }
 
+  /* Keep in-page anchors (e.g. #experiences) clear of the fixed nav bar. */
+  html {
+    scroll-padding-top: 96px;
+  }
+
+  /* No page scroll behind an open modal (partner card, registration dialog). */
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
+
   body {
     background: var(--color-page);
     color: var(--color-ink-strong);
@@ -191,5 +203,13 @@
 @keyframes photo-marquee {
   to {
     transform: translateX(-25%);
+  }
+}
+
+/* Home partner logo rows: slide left by one logo set. --sets is the number of
+   identical copies in the track, so one set is 100% / --sets of it. */
+@keyframes partner-marquee {
+  to {
+    transform: translateX(calc(-100% / var(--sets)));
   }
 }
